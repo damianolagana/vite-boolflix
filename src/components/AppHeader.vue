@@ -5,12 +5,17 @@ export default {
     name: "AppHeader",
     data() {
         return {
-            store
+            store,
+            searchedMovie: ""
         }
     },
-    mounted() {
-        console.log(this.store.fullAPI)
+    methods: {
+        findMovies() {
+            console.log(this.searchedMovie)
+            this.searchedMovie = ""
+        }
     }
+
 }
 
 
@@ -19,8 +24,8 @@ export default {
 
 <template>
     <div>
-        <input type="text" placeholder="Cerca">
-        <button>Search</button>
+        <input type="text" placeholder="Cerca" v-model="searchedMovie">
+        <button @click="findMovies()">Search</button>
     </div>
 </template>
 
