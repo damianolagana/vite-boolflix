@@ -1,9 +1,12 @@
 <script>
 import { store } from '../data/store';
-
+import CountryFlag from 'vue-country-flag-next'
 
 export default {
     name: "AppMain",
+    components: {
+        CountryFlag
+    },
     data() {
         return {
             store,
@@ -11,7 +14,12 @@ export default {
         }
     },
     methods: {
+        getEnglishFlag() {
+            if (movie.original_language = "en") {
+                movie.original_language = "gb"
+            }
 
+        }
     }
 
 }
@@ -29,7 +37,9 @@ export default {
             <div>
                 <p><span>Titolo:</span> {{ movie.title }}</p>
                 <p><span>Titolo originale:</span> {{ movie.original_title }}</p>
-                <p><span> Language:</span> {{ movie.original_language }}</p>
+                <p><span> Language:</span> <country-flag :country='movie.original_language, getEnglishFlag()'
+                        size='small' />
+                </p>
                 <p><span>Vote:</span> {{ movie.vote_average }}</p>
             </div>
         </div>

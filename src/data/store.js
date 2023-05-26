@@ -8,5 +8,6 @@ export const store = reactive({
     movies: [],
     series: [],
     urlCover: "https://image.tmdb.org/t/p/w185",
+    imgPath: "",
 
 })
