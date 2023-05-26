@@ -14,10 +14,11 @@ export default {
         }
     },
     methods: {
-        getEnglishFlag() {
-            if (movie.original_language = "en") {
-                movie.original_language = "gb"
+        getLanguageFlag(lang) {
+            if (lang == "en") {
+                return "gb";
             }
+            return lang;
 
         }
     }
@@ -37,8 +38,7 @@ export default {
             <div>
                 <p><span>Titolo:</span> {{ movie.title }}</p>
                 <p><span>Titolo originale:</span> {{ movie.original_title }}</p>
-                <p><span> Language:</span> <country-flag :country='movie.original_language, getEnglishFlag()'
-                        size='small' />
+                <p><span> Language:</span> <country-flag :country='getLanguageFlag(movie.original_language)' size='small' />
                 </p>
                 <p><span>Vote:</span> {{ movie.vote_average }}</p>
             </div>
