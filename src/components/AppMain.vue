@@ -23,15 +23,14 @@ export default {
 <template>
     <div id="moviesBox">
         <div v-for="movie in store.movies">
-            <h2>Movie</h2>
             <div>
-                <img src="" alt="">
+                <img :src="`${this.store.urlCover}${movie.poster_path}`" alt="">
             </div>
             <div>
-                <p>{{ movie.title }}</p>
-                <p>{{ movie.original_title }}</p>
-                <p>{{ movie.original_language }}</p>
-                <p>{{ movie.vote_count }}</p>
+                <p><span>Titolo:</span> {{ movie.title }}</p>
+                <p><span>Titolo originale:</span> {{ movie.original_title }}</p>
+                <p><span> Language:</span> {{ movie.original_language }}</p>
+                <p><span>Vote:</span> {{ movie.vote_average }}</p>
             </div>
         </div>
 
@@ -50,5 +49,13 @@ export default {
     border: 1px solid white;
     padding: 10px;
     text-align: center;
+}
+
+span {
+    font-weight: 600;
+}
+
+img {
+    width: 100%;
 }
 </style>

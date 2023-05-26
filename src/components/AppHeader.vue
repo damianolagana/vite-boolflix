@@ -21,7 +21,10 @@ export default {
                 this.store.movies = answer.data.results
                 console.log(store.movies)
 
+
+
             })
+
 
 
             this.searchedMovie = ""

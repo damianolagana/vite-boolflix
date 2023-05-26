@@ -6,5 +6,7 @@ export const store = reactive({
     fullAPI: "",
     query: "&query=",
     movies: [],
-    series: []
+    series: [],
+    urlCover: "https://image.tmdb.org/t/p/w185",
+
 })
