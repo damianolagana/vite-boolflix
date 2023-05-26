@@ -1,12 +1,14 @@
 <script>
 import AppHeader from './components/AppHeader.vue'
+import AppMain from './components/AppMain.vue'
 import { store } from './data/store';
 import axios from 'axios'
 
 export default {
   name: "App",
   components: {
-    AppHeader
+    AppHeader,
+    AppMain
   },
   data() {
     return {
@@ -35,6 +37,18 @@ export default {
   <header>
     <AppHeader />
   </header>
+  <main>
+    <AppMain />
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+header {
+  background-color: rgb(29, 27, 27);
+  display: flex;
+  align-items: center;
+  height: 80px;
+  justify-content: space-between;
+  padding: 20px;
+}
+</style>

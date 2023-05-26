@@ -23,6 +23,7 @@ export default {
 
             })
 
+
             this.searchedMovie = ""
         }
     }
@@ -35,31 +36,21 @@ export default {
 
 <template>
     <div>
+        <h2>BOOLFLIX</h2>
+    </div>
+    <div id="navBar">
         <input type="text" placeholder="Cerca" v-model="searchedMovie">
         <button @click="findMovies()">Search</button>
-    </div>
-    <div id="moviesBox">
-        <div v-for="movie in store.movies">
-            <h2>Movie</h2>
-            <ul>
-                <li>{{ movie.title }}</li>
-                <li>{{ movie.original_title }}</li>
-                <li>{{ movie.original_language }}</li>
-                <li>{{ movie.vote_count }}</li>
-            </ul>
-        </div>
-
     </div>
 </template>
 
 <style scoped>
-#moviesBox {
-    display: flex;
-    flex-wrap: wrap;
-    width: 1200px;
+#navBar {
+    width: 30%;
+    padding: 10px;
 }
 
-#moviesBox>div {
-    width: calc(100%/5);
+h2 {
+    color: red;
 }
 </style>
