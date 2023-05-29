@@ -11,22 +11,35 @@ export default {
         }
     },
     methods: {
+        startSearching() {
+            this.findMovies();
+            this.findSeries();
+
+            this.searchedMovie = ""
+        },
+
         findMovies() {
             console.log(this.searchedMovie)
-            this.store.fullAPI += this.store.query + this.searchedMovie;
-            console.log(this.store.fullAPI)
+            const fullMoviesUrl = `${this.store.urlApi}movie?${this.store.apiKey}&query=${this.searchedMovie}`
 
-            axios.get(this.store.fullAPI).then(answer => {
+
+            axios.get(fullMoviesUrl).then(answer => {
                 console.log(answer)
                 this.store.movies = answer.data.results
                 console.log(store.movies)
-
-
-
             })
 
 
-            this.searchedMovie = ""
+        },
+        findSeries() {
+            const fullSeriesUrl = `${this.store.urlApi}tv?${this.store.apiKey}&query=${this.searchedMovie}`
+
+            console.log("url serie", fullSeriesUrl)
+            axios.get(fullSeriesUrl).then(answer => {
+                console.log("le serie sono:", answer)
+                this.store.series = answer.data.results
+                console.log("array series", store.series)
+            })
         }
     }
 
@@ -42,7 +55,7 @@ export default {
     </div>
     <div id="navBar">
         <input type="text" placeholder="Cerca" v-model="searchedMovie">
-        <button @click="findMovies()">Search</button>
+        <button @click="startSearching()">Search</button>
     </div>
 </template>
 

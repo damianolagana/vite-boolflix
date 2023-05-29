@@ -16,20 +16,9 @@ export default {
     }
   },
   methods: {
-    getFullAPI() {
-      this.store.fullAPI = this.store.urlApi + this.store.apiKey
-    }
+
   },
-  mounted() {
 
-    this.getFullAPI()
-    console.log(this.store.fullAPI)
-
-    axios.get(this.store.fullAPI).then(answer => {
-      console.log(answer)
-
-    })
-  }
 }
 </script>
 
